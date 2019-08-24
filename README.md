@@ -1,8 +1,2 @@
-# scratch
-<<<<<<< HEAD
-courtney making a change/test
+MAKING CHANGE
 
-changeee!!
-=======
-
->>>>>>> dev
