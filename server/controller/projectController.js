@@ -27,7 +27,7 @@ apiController.addProject = (req, res) => {
 //put methods:
 
 //patch methods:
-app.patch("/card/:id", (req, res) => {});
+// app.patch("/card/:id", (req, res) => {});
 
 //delete methods:
 
