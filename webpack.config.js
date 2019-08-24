@@ -2,18 +2,17 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: path.join(__dirname, 'Browser', 'index.js'), //! NEED TO UPDATE ONCE FOLDER NAME CHANGED
+  entry: path.join(__dirname, 'client', 'index.js'), //! Confirm
   resolve: { extensions: ['.jsx', '.js']},
-  //! REVISIT
   devServer: {
-    publicPath: '/Public', //! NEED TO UPDATE ONCE FOLDER NAME CHANGED
+    publicPath: '/build',
     proxy: {
       '/api': 'http://localhost:3000',
     },
     historyApiFallback: true,
   },
   output: {
-    path: path.resolve(__dirname, 'Public'), //! NEED TO UPDATE ONCE FOLDER NAME CHANGED
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
   module: {
