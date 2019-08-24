@@ -31,4 +31,4 @@ app.patch("/card/:id", (req, res) => {});
 
 //delete methods:
 
-module.export = apiController;
+module.exports = apiController;
