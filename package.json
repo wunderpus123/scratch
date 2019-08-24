@@ -1,7 +1,7 @@
 {
-  "name": "scratch",
+  "name": "scrum",
   "version": "1.0.0",
-  "description": "<<<<<<< HEAD courtney making a change/test",
+  "description": "TBD",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wunderpus123/scratch.git"
+    "url": "git+https://github.com/wunderpus123/scrum.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wunderpus123/scratch/issues"
+    "url": "https://github.com/wunderpus123/scrum/issues"
   },
-  "homepage": "https://github.com/wunderpus123/scratch#readme",
+  "homepage": "https://github.com/wunderpus123/scrum#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "express": "^4.12.3",
