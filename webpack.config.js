@@ -5,7 +5,8 @@ module.exports = {
   entry: path.join(__dirname, 'client', 'index.js'), //! Confirm
   resolve: { extensions: ['.jsx', '.js']},
   devServer: {
-    publicPath: '/build',
+    contentBase: 'build',
+    port: 8080,
     proxy: {
       '/api': 'http://localhost:3000',
     },
