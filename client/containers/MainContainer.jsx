@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import ProjectBar from "../components/ProjectBar";
 import TasksContainer from "./TasksContainer";
 
 const mapStateToProps = store => ({});
@@ -16,8 +16,8 @@ class MainContainer extends Component {
   render() {
     return (
       <div className="mainContainer">
+        <ProjectBar />
         <Header projectTitle={"Project #1"} />
-        <Sidebar />
         <TasksContainer />
       </div>
     );
