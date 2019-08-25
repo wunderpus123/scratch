@@ -1,16 +1,26 @@
 const express = require('express');
 const projectController = require("../controller/projectController");
-// const userController = require("../controller/userController");
+const userController = require("../controller/userController");
 
 const apiRouter = express.Router();
 
-//onClick add project will route here:
-// apiRouter.post('/project/add', projectController.addProject, projectController.getProject);
+//serves projects:
+apiRouter.get('/projects', projectController.getAll);
 
-//onClick projectId will route here:
-apiRouter.get('/project/:id', projectController.getProject, projectController.getTasks);
+//add project:
+apiRouter.post('/projects', projectController.addProject);
 
-appRouter.post('/task/add', projectController.addTask, projectController.getTasks);
+//get project with id and serve cards
+apiRouter.get('/projects/:id', projectController.getProject, projectController.getCards);
+
+//add card:
+apiRouter.post('/projects/:id', projectController.addCard);
+
+//update card
+apiRouter.patch('/cards/:id', projectController.updateCard);
+
+//delete card
+apiRouter.delete('/cards/:id', projectController.deleteCard);
 
 
 
