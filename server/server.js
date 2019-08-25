@@ -20,10 +20,10 @@ app.get('/', (req, res) => {
 });
 
 //onClick to login -> verifies user in db -> send info to front end to display;
-app.post('/login', userController.login, (req, res) => {
-    //login successful!
-    res.send('LOGIN SUCCESS! would send truthy value, and you would redirect via react router, else redirect to login/sign up again.')
-});
+// app.post('/login', projectController.login, (req, res) => {
+//     //login successful!
+//     res.send('LOGIN SUCCESS! would send truthy value, and you would redirect via react router, else redirect to login/sign up again.')
+// });
 
 //onClick to signup
 // app.post('/signup', userController.signup, (req, res) => {
