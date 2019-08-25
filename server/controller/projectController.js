@@ -1,17 +1,22 @@
 //require database - elephantSQL?;
+const db = require('../data/elephantsql');
 
 //api controller should route all reqs
-const apiController = {};
+const projectController = {};
 
-//project methods;
-//displaying entire board
-//post methods:
-apiController.getProject = (req, res, next) => {
-  //verify credentials and if found,
-  return next();
+projectController.getProject = (req, res, next) => {
+  //verify credentials and if found, next middleware;
+  const id = req.params.id;
+  const username = req.cookies.username;
+  db.query(`SELECT * FROM taskTable WHERE username=$1 AND projectId=$2`, [username, projectId])
+    .then(data => {
+      if (!data) res.send('no project found!')
+      res.locals.tasks(data.rows)
+      return next();
+    })
 };
 
-apiController.addProject = (req, res) => {
+projectController.addProject = (req, res) => {
   //
 };
 
@@ -31,4 +36,4 @@ apiController.addProject = (req, res) => {
 
 //delete methods:
 
-module.exports = apiController;
+module.exports = projectController;

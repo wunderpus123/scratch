@@ -22,6 +22,7 @@
   "homepage": "https://github.com/wunderpus123/scrum#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "cookie-parser": "^1.4.4",
     "express": "^4.12.3",
     "node-sass": "^4.12.0",
     "pg": "^7.12.1",
