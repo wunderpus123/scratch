@@ -17,7 +17,7 @@ projectController.addProject = (req, res) => {
     const username = req.cookies.username;
     const { projectName } = req.body;
     //incomplete query: need to figure out how to join usertable and project table to add a uid.
-    db.query(`INSERT INTO projectTable (projectName) VALUES ($1), [projectName]`)
+    db.query(`INSERT INTO projectTable (projectName) VALUES ($1)`, [projectName])
       .then(data => {
         if (!data) console.log('creating project failed!');
         res.json('project added!')
