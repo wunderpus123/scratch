@@ -24,10 +24,10 @@ app.post('/login', userController.login, (req, res) => {
     return;
 });
 
-// app.post('/signup', userController.signup, (req, res) => {
-//     //signup successful!
-//     res.send('SIGNUP SUCCESS!')
-// });
+app.post('/signup', userController.signup, (req, res) => {
+    //signup successful!
+    return;
+});
 
 // app.use('/api', apiRouter);
 
