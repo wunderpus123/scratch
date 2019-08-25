@@ -1,12 +1,12 @@
 import * as types from "../constants/actionTypes";
 
-const initialState = State({
+const initialState = {
   username: "",
   projectsList: [],
   tasksList: [],
   lastProjectId: 0,
   lastTaskId: 0
-});
+};
 
 const tasksReducer = (state = initialState, action) => {
   let tasksList;

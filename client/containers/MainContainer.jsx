@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import TasksContainer from "./TasksContainer";
-import * as Actions from "../actions/actions";
 
-const mapStateToProps = store => {};
+const mapStateToProps = store => ({});
 
 const mapDispatchToProps = dispatch => ({});
 
@@ -16,9 +15,8 @@ class MainContainer extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1 id="header">Scrum for life</h1>
-        <Header />
+      <div className="mainContainer">
+        <Header projectTitle={"Project #1"} />
         <Sidebar />
         <TasksContainer />
       </div>
