@@ -1,3 +1,4 @@
+//keep this if we are using my db; trash if we are using paul's
 const { Pool } = require('pg');
 
 // const pool = new Pool; ({

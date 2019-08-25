@@ -5,12 +5,13 @@ const projectController = require("../controller/projectController");
 const apiRouter = express.Router();
 
 //onClick add project will route here:
-// apiRouter.post('/project/add', projectController.addProject);
+// apiRouter.post('/project/add', projectController.addProject, projectController.getProject);
 
 //onClick projectId will route here:
-apiRouter.get('/project/:id', projectController.getProject);
+apiRouter.get('/project/:id', projectController.getProject, projectController.getTasks);
 
-// appRouter.get('')
+appRouter.post('/task/add', projectController.addTask, projectController.getTasks);
+
 
 
 module.exports = apiRouter;
