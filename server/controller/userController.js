@@ -1,33 +1,7 @@
 const userController = {}
 const pool = require('../data/database');
-
-// pool.connect(function(err) {
-//     if(err) {
-//       return console.error('error running query', err);
-//     }
-//     pool.query('SELECT * FROM userinfo', function(err, result) {
-//       if (err) {
-//         return console.error('error running query', err);
-//       }
-//       console.log(result.rows[0]);
-//       pool.end();
-//     })
-//   })
-
-// let username = 'test';
-// let query = {
-//     text: 'SELECT username, password FROM userinfo WHERE username = $1',
-//     values: [username]
-// }
-
-// pool.connect(function(err) {
-//     if(err) return console.error('error running query', err);
-//     pool.query(query)
-//         .then(res => console.log(res.rows))
-//         .catch(err => console.error('error running query', err))
-//   })
   
-//signup
+// signup controller
 
 // userController.signup = (req, res, next) => {
 //     // const{ credentials } = req.body;
@@ -36,10 +10,11 @@ const pool = require('../data/database');
 //     return next();
 // };
 
-//login
+// login controller
 userController.login = (req, res, next) => {
     // get user name and password from request body
-    const { username, password } = req.params;
+    const { username, password } = req.body;
+    console.log(req.body)
     // set up a query object with username passed in to verify password
     const queryObj = {
         text: 'SELECT username, password FROM userinfo WHERE username = $1',
@@ -51,18 +26,17 @@ userController.login = (req, res, next) => {
         // query the user info table with the user name
         pool.query(queryObj)
             .then(data => {
-                console.log(data.rows[0]);
+                console.log(data.rows[0].password);
                 // if data found, check if the password matches the password from result
-                if(data.rows === password && data.rows.password) res.status(200).send('User Verified!!!')
+                if(data.rows[0].password === password) res.status(200).send('User Verified!!!')
+                    //! need to save userID in res.locals
+                    //! need to redirect/chain project controller middleware in server
                 else res.send('invalid user password!')
+                    // redirect to 
             })
             .catch(err => console.error('error running query', err))
       })
     return next();
 }
-
-
-
-
 
 module.exports = userController;

@@ -4,6 +4,7 @@ const express = require("express");
 const userController = require("./controller/userController");
 // const apiRouter = require("./routes/api");
 
+
 const app = express();
 //body parser without npm bodyParser
 app.use(express.json());
@@ -15,6 +16,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
+// when user attempts to login from main page
+  // userController.login verifies the user - saves user id to res.locals
+  // 
 app.post('/login', userController.login, (req, res) => {
     //login successful!
     return;

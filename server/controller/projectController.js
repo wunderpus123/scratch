@@ -7,7 +7,8 @@ const apiController = {};
 //displaying entire board
 //post methods:
 apiController.getProject = (req, res, next) => {
-  //verify credentials and if found,
+  //verify credentials and if found, 
+  
   return next();
 };
 

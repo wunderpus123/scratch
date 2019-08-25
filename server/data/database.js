@@ -7,3 +7,26 @@ const pool = new pg.Pool({
 });
 
 module.exports = pool;
+
+// dummy data in the db for now --- 
+
+// user table
+// {
+//   id: 1,
+//   username: test ,
+//   password: 123
+// }
+
+// project table
+// {
+//   id: 1,
+//   name: scrum,
+//   userId: 1,
+// }
+
+// task table
+// {
+//   id: 1,
+//   taskName: create db ,
+//   projectId: 1
+// }
