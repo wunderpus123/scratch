@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 // const apiController = require("./controller/projectController");
-// const userController = require("./controller/userController");
+const userController = require("./controller/userController");
 // const apiRouter = require("./routes/api");
 
 const app = express();
@@ -15,10 +15,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-// app.post('/login', userController.login, (req, res) => {
-//     //login successful!
-//     res.send('LOGIN SUCCESS! would send truthy value, and you would redirect via react router, else redirect to login/sign up again.')
-// });
+app.post('/login', userController.login, (req, res) => {
+    //login successful!
+    return;
+});
 
 // app.post('/signup', userController.signup, (req, res) => {
 //     //signup successful!
