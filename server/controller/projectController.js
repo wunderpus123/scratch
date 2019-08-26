@@ -24,9 +24,9 @@ projectController.getAll = (req, res, next) => {
 //serves all cards for scrumboard
 projectController.getCard = (req, res, next) => {
   //using param, query all tasks using id;
-    const { id } = req.params;
-    console.log('Project ID', id) 
-      db.query(`SELECT taskname, projectid, status FROM task WHERE projectid = $1`, [id])
+    // const { id } = req.params;
+    // console.log('Project ID', id) 
+      db.query(`SELECT taskname, projectid, status FROM task WHERE projectid = 1`)
         .then(data => {
         if (!data) res.send('no tasks at this time! add one here: (should have a button to add task')
         console.log('all tasks from db:', data.rows)

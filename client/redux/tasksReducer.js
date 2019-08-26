@@ -15,7 +15,7 @@ const tasksReducer = (state = initialState, action) => {
   let taskId;
 
   switch (action.type) {
-    case types.LOG_IN:
+    case types.LOG_IN_SHOW_PROJECTS:
       return {
         ...state,
         username: action.payload.username
