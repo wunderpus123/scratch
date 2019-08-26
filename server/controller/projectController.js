@@ -76,7 +76,9 @@ projectController.deleteCard = (req, res, next) => {
     
     //using param, query tasks using id;
     const { id } = req.body;
+    console.log('HITTING THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     console.log('taskid', id ) 
+
       db.query(`DELETE FROM task WHERE id = $1`, [id])
         .then(data => {
         if (!data) return res.send('error finding that task to delete')

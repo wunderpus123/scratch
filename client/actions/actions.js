@@ -31,7 +31,6 @@ export const addTask = (taskData) => {
   })
   .then(data => data.json())
   .then(task => {
-    console.log('RECEIVED TASK before dispatching', task)
     dispatch({ type: types.ADD_TASK, payload: task });
   })
   .catch(err => console.log('error:', err))
@@ -40,16 +39,19 @@ export const addTask = (taskData) => {
 
 //PRIORITY
 export const deleteTask = taskId => {
-  fetch('/api/project/task', {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify( {id: taskId} )
-  })
-  .then(data => data.json())
-  .then(results => {
-    dispatch({ type: types.DELETE_TASK, payload: { results }})
-  })
-  .catch(err => console.log('error:', err))
+  return (dispatch) => {
+    console.log('ABOUT TO FETCH')
+    fetch('/api/projects/task', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify( {id: taskId} )
+    })
+    .then(data => data.json())
+    .then(results => {
+      dispatch({ type: types.DELETE_TASK, payload: { results }})
+    })
+    .catch(err => console.log('error:', err))
+  }
 }
 
 export const updateTitle = (taskId, newTitle) => ({
