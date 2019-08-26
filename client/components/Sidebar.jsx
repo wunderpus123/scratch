@@ -37,7 +37,8 @@ class Sidebar extends Component {
                   return (
                     <div>
                       {/* <ProjectBar /> */}
-                      <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
+                      <h1>Project #1</h1>
+                      <Header addTask={this.props.addTask} /> 
                       <TaskContainer />
                     </div>
                   )
