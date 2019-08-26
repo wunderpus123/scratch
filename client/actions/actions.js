@@ -1,6 +1,6 @@
 import * as types from "../constants/actionTypes";
 
-export const logIn = (credentials) => {
+export const logInShowProjects = (credentials) => {
   return (dispatch) => {
     fetch('/login', {
       method: 'POST',
@@ -8,7 +8,8 @@ export const logIn = (credentials) => {
       body: JSON.stringify( {credentials} ),
     })
     .then((data) => {
-      dispatch({ type: types.LOG_IN, payload: { credentials } });
+      // dispatch({ type: types.LOG_IN_SHOW_PROJECTS, payload: { credentials } });
+      console.log(data);
     })
     .catch(err => console.log('error:', err))
   }

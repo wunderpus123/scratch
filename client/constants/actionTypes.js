@@ -1,4 +1,4 @@
-export const LOG_IN = "LOG_IN";
+export const LOG_IN_SHOW_PROJECTS = "LOG_IN_SHOW_PROJECTS";
 export const ADD_TASK = "ADD_TASK";
 export const DELETE_TASK = "DELETE_TASK";
 export const ADD_PROJECT = "ADD_PROJECT";

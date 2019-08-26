@@ -4,7 +4,7 @@ import * as actions from "../actions/actions";
 
 
 const mapDispatchToProps = (dispatch) => ({
-  logIn: (credentials) => dispatch(actions.logIn(credentials))
+  logInShowProjects: (credentials) => dispatch(actions.logInShowProjects(credentials))
 });
 
 class Login extends Component {
@@ -27,7 +27,7 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.logIn(this.state)
+    this.props.logInShowProjects(this.state)
     // alert("A name was submitted: " + " .... ");
     //needs to be connected to the redux store
   }
