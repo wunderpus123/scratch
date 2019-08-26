@@ -1,12 +1,20 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions/actions";
 
-export default class Login extends Component {
+
+const mapDispatchToProps = (dispatch) => ({
+  logInShowProjects: (credentials) => dispatch(actions.logInShowProjects(credentials))
+});
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {} //we can remove it
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //handlechange grabs all of the data from input fields
@@ -18,8 +26,9 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
-    alert("A name was submitted: " + " .... ");
     event.preventDefault();
+    this.props.logInShowProjects(this.state)
+    // alert("A name was submitted: " + " .... ");
     //needs to be connected to the redux store
   }
 
@@ -53,3 +62,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default connect (null, mapDispatchToProps)(Login);
