@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import * as actions from "../actions/actions";
 
 
+const mapStateToProps = state => {
+  const { isLoggedIn, tasksList } = state.tasks;
+  return { isLoggedIn, tasksList }
+}
+
 const mapDispatchToProps = (dispatch) => ({
   logInShowProjects: (credentials) => dispatch(actions.logInShowProjects(credentials))
 });
@@ -28,6 +33,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.logInShowProjects(this.state)
+    // this.props.history.push('/')
     // alert("A name was submitted: " + " .... ");
     //needs to be connected to the redux store
   }

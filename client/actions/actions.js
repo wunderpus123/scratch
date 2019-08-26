@@ -7,14 +7,14 @@ export const logInShowProjects = (credentials) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify( {credentials} ),
     })
-    .then((data) => {
-      // dispatch({ type: types.LOG_IN_SHOW_PROJECTS, payload: { credentials } });
-      console.log(data.json());
+    .then(data => data.json())
+    .then(task => {
+      console.log(task)
+      dispatch({ type: types.LOG_IN_SHOW_PROJECTS, payload: { task } });
     })
     .catch(err => console.log('error:', err))
   }
 };
-
 
 export const addTask = (title, owner) => ({
   type: types.ADD_TASK,
