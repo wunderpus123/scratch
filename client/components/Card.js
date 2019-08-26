@@ -17,8 +17,8 @@ const clickDone = (event, props) => {
 
 const deleteCard = (event, props) => {
   event.preventDefault();
-  props.deleteTask(props.id)
-}
+  props.deleteTask(props.id);
+};
 
 const Card = props => (
   <div className="card">
@@ -43,8 +43,8 @@ const Card = props => (
         </a>
       </div>
     </div>
-    <button> Edit </button>
-    <button onClick = {event => deleteCard(event, props)}> Delete </button>
+    {/* <button> Edit </button> */}
+    <button onClick={event => deleteCard(event, props)}> Delete </button>
   </div>
 );
 
