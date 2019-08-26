@@ -3,6 +3,14 @@
   padding: 100px;
 }
 
+form {
+  font-size: 12px;
+}
+
+form input {
+  margin: 2px;
+}
+
 .sidenav {
   width: 200px;
   background-color: black;
@@ -11,6 +19,7 @@
 
 #tasksContainer {
   display: flex;
+  flex-direction: row;
 }
 
 .column {

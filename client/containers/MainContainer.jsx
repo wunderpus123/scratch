@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import ProjectBar from "../components/ProjectBar";
 import TasksContainer from "./TasksContainer";
+import * as actions from "../actions/actions.js";
 
 const mapStateToProps = store => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addTask: (title, owner) => {
+    dispatch(actions.addTask(title, owner));
+  }
+});
 
 class MainContainer extends Component {
   constructor(props) {
@@ -16,8 +21,8 @@ class MainContainer extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <Header projectTitle={"Project #1"} />
-        <Sidebar />
+        <ProjectBar />
+        <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
         <TasksContainer />
       </div>
     );

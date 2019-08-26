@@ -1,14 +1,21 @@
 import React from "react";
 import Card from "./Card";
 
-const Column = props => (
-  <div className="column">
-    <h2>{props.status}</h2>
-    <div>
-      <Card />
+const Column = props => {
+  console.log("props tasks ", props.tasks);
+  let tasksToRender = [];
+  if (props.tasks !== undefined) {
+    tasksToRender = props.tasks.map(function(val, idx) {
+      return <Card title={val.title} owner={val.owner} key={"card" + idx} />;
+    });
+  }
+
+  return (
+    <div className="column">
+      <h2>{props.header}</h2>
+      <div>{tasksToRender}</div>
     </div>
-    {/* render cards here */}
-  </div>
-);
+  );
+};
 
 export default Column;
