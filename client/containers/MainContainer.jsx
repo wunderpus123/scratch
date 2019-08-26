@@ -23,7 +23,7 @@ class MainContainer extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <Sidebar/>
+        <Sidebar addTask={this.props.addTask}/>
         {/* <ProjectBar />
         <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
         <TasksContainer /> */}
