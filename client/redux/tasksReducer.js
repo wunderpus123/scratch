@@ -8,7 +8,8 @@ const initialState = {
     { id: 1, title: "Get shit done", owner: "Everyone", status: "todo" }
   ],
   lastProjectId: 1,
-  lastTaskId: 1
+  lastTaskId: 1,
+
 };
 
 const tasksReducer = (state = initialState, action) => {
@@ -25,10 +26,10 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.ADD_TASK:
-      let lastTaskId = state.lastTaskId + 1;
+      let lastTaskId = action.payload.id;
 
       const newTask = {
-        id: lastTaskId,
+        id: action.payload.id,
         title: action.payload.title,
         owner: action.payload.owner,
         status: "todo"
@@ -90,17 +91,22 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.DELETE_TASK:
-      tasksList = []
-      taskId = action.payload;
-      Object.assign(tasksList, state.tasksList);
-      tasksList = tasksList.filter(task =>{
-        return task.id !== taskId
-        });
+        return {
+          ...state,
+          isLoggedIn: true,
+          tasksList: action.payload.results
+        };
+      // // tasksList = []
+      // taskId = action.payload;
+      // Object.assign(tasksList, state.tasksList);
+      // tasksList = tasksList.filter(task =>{
+      //   return task.id !== taskId
+      //   });
 
-      return {
-        ...state,
-        tasksList
-      };
+      // return {
+      //   ...state,
+      //   tasksList
+      // };
 
     case types.ADD_PROJECT:
       let projectsList;

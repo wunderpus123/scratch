@@ -10,7 +10,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   addTask: (title, owner) => {
-    dispatch(actions.addTask(title, owner));
+    dispatch(actions.addTask({title, owner}));
     
   }
 });
