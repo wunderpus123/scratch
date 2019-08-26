@@ -54,6 +54,22 @@ export const deleteTask = taskId => {
   }
 }
 
+export const updateStatus = (taskId, newStatus) => {
+  return (dispatch) => {
+    fetch('/api/projects/task', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify( {taskId, newStatus})
+    })
+    .then(data => data.json())
+    .then(results => {
+      console.log ('ABOUT TO GO IN TO REDUCER', results)
+      dispatch({type: types.UPDATE_STATUS, payload: { results }})
+    })
+    .catch(err => console.log('error:', err))
+  }
+}
+
 export const updateTitle = (taskId, newTitle) => ({
   type: types.UPDATE_TITLE,
   payload: { taskId, newTitle }
@@ -64,10 +80,6 @@ export const updateOwner = (taskId, newOwner) => ({
   payload: { taskId, newOwner }
 });
 
-export const updateStatus = (taskId, newStatus) => ({
-  type: types.UPDATE_STATUS,
-  payload: { taskId, newStatus }
-});
 
 
 export const addProject = projectName => ({

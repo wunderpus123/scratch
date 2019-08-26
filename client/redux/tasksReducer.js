@@ -77,20 +77,15 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.UPDATE_STATUS:
-      tasksList = [];
-      taskId = action.payload.taskId;
-      let newStatus = action.payload.newStatus;
-      Object.assign(tasksList, state.tasksList);
-      tasksList.forEach(function(task) {
-        if (task.id === taskId) {
-          task.status = newStatus;
-        }
-      });
 
-      return {
-        ...state,
-        tasksList
-      };
+        console.log('ACTION PAYLOAD', action.payload.results)
+        tasksList = action.payload.results
+          
+        return {
+          ...state,
+          isLoggedIn: true,
+          tasksList: tasksList,
+        };
 
     case types.DELETE_TASK:
         return {

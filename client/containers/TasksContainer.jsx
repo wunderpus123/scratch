@@ -25,7 +25,7 @@ class TasksContainer extends Component {
   render() {
     const taskList = this.props.tasks;
     const todoTasks = taskList.filter(task => {
-      return task.status === "todo" || task.status === null;
+      return task.status === "todo" || task.status === null || task.status === "";
     });
     const inProgressTasks = taskList.filter(task => {
       return task.status === "inProgress";
