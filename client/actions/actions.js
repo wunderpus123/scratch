@@ -1,5 +1,10 @@
 import * as types from "../constants/actionTypes";
 
+export const logIn = (username, password) => ({
+  type: types.LOG_IN,
+  payload: { username, password }
+})
+
 export const addTask = (title, owner) => ({
   type: types.ADD_TASK,
   payload: { title, owner }
