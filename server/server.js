@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
   // 
 app.post('/login', userController.login, projectController.getCard, (req, res, next) => {
     // once received data in the res.locals, send project data to the client
+    console.log('SENDING THIS BACK TO CLIENT', res.locals.taskData)
     res.status(200).json(res.locals.taskData);
 });
 

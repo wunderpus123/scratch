@@ -9,7 +9,7 @@ export const logInShowProjects = (credentials) => {
     })
     .then((data) => {
       // dispatch({ type: types.LOG_IN_SHOW_PROJECTS, payload: { credentials } });
-      console.log(data);
+      console.log(data.json());
     })
     .catch(err => console.log('error:', err))
   }
