@@ -2,10 +2,12 @@ import * as types from "../constants/actionTypes";
 
 const initialState = {
   username: "",
-  projectsList: [],
-  tasksList: [],
-  lastProjectId: 0,
-  lastTaskId: 0
+  projectsList: [{ id: 1, name: "Daily" }],
+  tasksList: [
+    { id: 1, title: "Get shit done", owner: "Everyone", status: "todo" }
+  ],
+  lastProjectId: 1,
+  lastTaskId: 1
 };
 
 const tasksReducer = (state = initialState, action) => {
@@ -14,7 +16,7 @@ const tasksReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case types.ADD_TASK:
-      lastTaskId = state.lastTaskId + 1;
+      let lastTaskId = state.lastTaskId + 1;
 
       const newTask = {
         id: lastTaskId,
