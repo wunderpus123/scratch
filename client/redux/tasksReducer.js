@@ -81,9 +81,12 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.DELETE_TASK:
+      tasksList = []
       taskId = action.payload;
       Object.assign(tasksList, state.tasksList);
-      tasksList.filter(task => task.id !== taskId);
+      tasksList = tasksList.filter(task =>{
+        return task.id !== taskId
+        });
 
       return {
         ...state,

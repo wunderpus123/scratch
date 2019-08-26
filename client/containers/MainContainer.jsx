@@ -25,7 +25,7 @@ class MainContainer extends Component {
       <div className="mainContainer">
         <ProjectBar projects={this.props.projects} />
         <Header addTask={this.props.addTask} projectTitle={"My Project"} />
-        <TasksContainer />
+        <TasksContainer  />
       </div>
     );
   }
