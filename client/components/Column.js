@@ -9,6 +9,7 @@ const Column = props => {
         <Card
           title={val.title}
           owner={val.owner}
+          id={val.id}
           updateStatus={props.updateStatus}
           key={"card" + idx}
         />
