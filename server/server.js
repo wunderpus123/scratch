@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
 // when user attempts to login from main page
   // userController.login verifies the user - saves user id to res.locals
   // 
-app.post('/login', userController.login, projectController.getAll, (req, res, next) => {
+app.post('/login', userController.login, projectController.getCard, (req, res, next) => {
     // once received data in the res.locals, send project data to the client
-    res.status(200).json(res.locals.projectData);
+    res.status(200).json(res.locals.taskData);
 });
 
 app.post('/signup', userController.signup, (req, res) => {
