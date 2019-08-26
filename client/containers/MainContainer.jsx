@@ -23,16 +23,10 @@ class MainContainer extends Component {
   render() {
     return (
       <div className="mainContainer">
-<<<<<<< HEAD
-        <ProjectBar projects={this.props.projects} />
-        <Header addTask={this.props.addTask} projectTitle={"My Project"} />
-        <TasksContainer  />
-=======
         <Sidebar/>
         {/* <ProjectBar />
         <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
         <TasksContainer /> */}
->>>>>>> dev
       </div>
     );
   }
