@@ -4,7 +4,7 @@ import * as actions from "../actions/actions";
 
 
 const mapDispatchToProps = (dispatch) => ({
-  logIn: (username, password) => dispatch(actions.logIn(username, password))
+  logIn: (credentials) => dispatch(actions.logIn(credentials))
 });
 
 class Login extends Component {

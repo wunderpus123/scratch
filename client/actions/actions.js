@@ -1,9 +1,19 @@
 import * as types from "../constants/actionTypes";
 
-export const logIn = (username, password) => ({
-  type: types.LOG_IN,
-  payload: { username, password }
-})
+export const logIn = (credentials) => {
+  return (dispatch) => {
+    fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify( {credentials} ),
+    })
+    .then((data) => {
+      dispatch({ type: types.LOG_IN, payload: { credentials } });
+    })
+    .catch(err => console.log('error:', err))
+  }
+};
+
 
 export const addTask = (title, owner) => ({
   type: types.ADD_TASK,
