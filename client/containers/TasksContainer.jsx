@@ -4,10 +4,14 @@ import Column from "../components/Column";
 import * as actions from "../actions/actions.js";
 
 const mapStateToProps = store => ({
-  tasks: store.tasks
+  tasks: store.tasks.tasksList
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  updateStatus: (title, newStatus) => {
+    dispatch(actions.updateStatus(title, newStatus));
+  }
+});
 
 class TasksContainer extends Component {
   constructor(props) {
@@ -15,15 +19,33 @@ class TasksContainer extends Component {
   }
 
   render() {
-    const taskList = this.props.tasks.tasksList;
+    const taskList = this.props.tasks;
     const todoTasks = taskList.filter(task => {
       return task.status === "todo";
     });
+    const inProgressTasks = taskList.filter(task => {
+      return task.status === "inProgress";
+    });
+    const doneTasks = taskList.filter(task => {
+      return task.status === "done";
+    });
     return (
       <div className="tasksContainer">
-        <Column header="To Do" tasks={todoTasks} />
-        <Column header="In Progress" />
-        <Column header="Done" />
+        <Column
+          header="To Do"
+          tasks={todoTasks}
+          updateStatus={this.props.updateStatus}
+        />
+        <Column
+          header="In Progress"
+          tasks={inProgressTasks}
+          updateStatus={this.props.updateStatus}
+        />
+        <Column
+          header="Done"
+          tasks={doneTasks}
+          updateStatus={this.props.updateStatus}
+        />
       </div>
     );
   }

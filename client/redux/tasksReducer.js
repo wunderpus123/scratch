@@ -65,10 +65,11 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.UPDATE_STATUS:
+      let oldTasks = [];
       taskId = action.payload.taskId;
       let newStatus = action.payload.newStatus;
-      Object.assign(tasksList, state.tasksList);
-      tasksList.forEach(function(task) {
+      Object.assign(oldTasks, state.tasksList);
+      oldTasks.forEach(function(task) {
         if (task.taskId === taskId) {
           task.status = newStatus;
         }
@@ -76,7 +77,7 @@ const tasksReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        tasksList
+        tasksList: oldTasks
       };
 
     case types.DELETE_TASK:

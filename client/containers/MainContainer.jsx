@@ -5,7 +5,9 @@ import ProjectBar from "../components/ProjectBar";
 import TasksContainer from "./TasksContainer";
 import * as actions from "../actions/actions.js";
 
-const mapStateToProps = store => ({});
+const mapStateToProps = store => ({
+  projects: store.tasks.projectsList
+});
 
 const mapDispatchToProps = dispatch => ({
   addTask: (title, owner) => {
@@ -21,8 +23,8 @@ class MainContainer extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <ProjectBar />
-        <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
+        <ProjectBar projects={this.props.projects} />
+        <Header addTask={this.props.addTask} projectTitle={"My Project"} />
         <TasksContainer />
       </div>
     );
