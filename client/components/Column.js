@@ -2,11 +2,18 @@ import React from "react";
 import Card from "./Card";
 
 const Column = props => {
-  console.log("props tasks ", props.tasks);
   let tasksToRender = [];
   if (props.tasks !== undefined) {
     tasksToRender = props.tasks.map(function(val, idx) {
-      return <Card title={val.title} owner={val.owner} key={"card" + idx} />;
+      return (
+        <Card
+          title={val.title}
+          owner={val.owner}
+          id={val.id}
+          updateStatus={props.updateStatus}
+          key={"card" + idx}
+        />
+      );
     });
   }
 

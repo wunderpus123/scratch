@@ -15,10 +15,14 @@ export const updateOwner = (taskId, newOwner) => ({
   payload: { taskId, newOwner }
 });
 
-export const updateStatus = (taskId, newStatus) => ({
-  type: types.UPDATE_STATUS,
-  payload: { taskId, newStatus }
-});
+export const updateStatus = (taskId, newStatus) => {
+  console.log("task ", taskId);
+  console.log("stat ", newStatus);
+  return {
+    type: types.UPDATE_STATUS,
+    payload: { taskId, newStatus }
+  };
+};
 
 export const deleteTask = taskId => ({
   type: types.DELETE_TASK,

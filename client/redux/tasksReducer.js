@@ -39,7 +39,7 @@ const tasksReducer = (state = initialState, action) => {
       let newTitle = action.payload.newTitle;
       Object.assign(tasksList, state.tasksList);
       tasksList.forEach(function(task) {
-        if (task.taskId === taskId) {
+        if (task.id === taskId) {
           task.title = newTitle;
         }
       });
@@ -54,7 +54,7 @@ const tasksReducer = (state = initialState, action) => {
       let newOwner = action.payload.newOwner;
       Object.assign(tasksList, state.tasksList);
       tasksList.forEach(function(task) {
-        if (task.taskId === taskId) {
+        if (task.id === taskId) {
           task.owner = newOwner;
         }
       });
@@ -65,11 +65,12 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.UPDATE_STATUS:
+      tasksList = [];
       taskId = action.payload.taskId;
       let newStatus = action.payload.newStatus;
       Object.assign(tasksList, state.tasksList);
       tasksList.forEach(function(task) {
-        if (task.taskId === taskId) {
+        if (task.id === taskId) {
           task.status = newStatus;
         }
       });
@@ -82,7 +83,7 @@ const tasksReducer = (state = initialState, action) => {
     case types.DELETE_TASK:
       taskId = action.payload;
       Object.assign(tasksList, state.tasksList);
-      tasksList.filter(task => task.taskId !== taskId);
+      tasksList.filter(task => task.id !== taskId);
 
       return {
         ...state,
