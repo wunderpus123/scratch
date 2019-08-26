@@ -5,7 +5,14 @@ const Column = props => {
   let tasksToRender = [];
   if (props.tasks !== undefined) {
     tasksToRender = props.tasks.map(function(val, idx) {
-      return <Card title={val.title} owner={val.owner} key={"card" + idx} />;
+      return (
+        <Card
+          title={val.title}
+          owner={val.owner}
+          updateStatus={props.updateStatus}
+          key={"card" + idx}
+        />
+      );
     });
   }
 
