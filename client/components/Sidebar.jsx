@@ -42,41 +42,11 @@ class Sidebar extends Component {
                     </div>
                   )
                 }
-                // {
-                //   return ( 
-                //   <div>
-                //     <h1>WELCOME TO THE WUNDERBOARD!!</h1>
-                //     <Login/>
-                //   </div>
-                //   )
-                // }
-            // },
-            // {
-            //   path: '/home',
-            //   main: () => (this.props.isLoggedIn ? <Redirect to="/home" /> : (
-            //     <div>
-            //       <TaskContainer />
-            //     </div>
-            //   )),
-            // }
-        //   {
-        //     path: '/',
-        //     main: () => {
-        //       <div>
-        //         <h2>Login here:</h2>
-        //         <Login/>
-        //       </div>
-        //     }
         }
         ];
         return (
           <Router>
             <div className="sideBar">
-              {/* <div>
-                <ul>
-                <li><Link to="/">Login</Link></li>
-                </ul>
-              </div> */}
               {
                 routes.map((route, index) => <Route key={index} exact path={route.path} component={route.main} />)
               }
