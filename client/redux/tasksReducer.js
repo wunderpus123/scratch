@@ -2,6 +2,7 @@ import * as types from "../constants/actionTypes";
 
 const initialState = {
   username: "",
+  isLoggedIn: false,
   projectsList: [{ id: 1, name: "Daily" }],
   tasksList: [
     { id: 1, title: "Get shit done", owner: "Everyone", status: "todo" }
@@ -16,9 +17,11 @@ const tasksReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case types.LOG_IN_SHOW_PROJECTS:
+      // console.log('taskList', taskList)
       return {
         ...state,
-        username: action.payload.username
+        isLoggedIn: true,
+        tasksList: action.payload.task
       };
 
     case types.ADD_TASK:
