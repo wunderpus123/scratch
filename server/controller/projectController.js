@@ -57,14 +57,15 @@ projectController.addCard = (req, res, next) => {
 //updates card:
 projectController.updateCard = (req, res, next) => {
   // grab task fields from req.body
-  const { taskname, status, id } = req.body;
-  console.log('task id', id) 
-    db.query(`UPDATE task SET taskname = $1, status = $2 WHERE id = $3`, [taskname, status, id])
+  const { taskId, newStatus }= req.body;
+  console.log('task id', taskId) 
+    db.query(`UPDATE task SET status = $1 WHERE id = $2`, [newStatus, taskId])
       .then(data => {
       if (!data) return res.send('error updating task to db', err)
       console.log('all tasks from db:', data.rows)
   //should send client all tasks (would need to map over in front end to display each task)
-      res.locals.taskData = data.rows;
+      // res.locals.taskData = data.rows;
+      console.log('UPDATE COMPLETE')
       return next() 
       })
       .catch(err => console.log('error updating task', err))

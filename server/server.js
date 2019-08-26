@@ -16,9 +16,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-// when user attempts to login from main page
-  // userController.login verifies the user - saves user id to res.locals
-  // 
 app.post('/login', userController.login, projectController.getCard, (req, res, next) => {
     // once received data in the res.locals, send project data to the client
     console.log('SENDING THIS BACK TO CLIENT', res.locals.taskData)
@@ -31,10 +28,6 @@ app.post('/signup', userController.signup, (req, res) => {
 });
 
 app.use('/api', apiRouter);
-// app.post('/signup', userController.signup, (req, res) => {
-  //   //signup successful!
-  //   return;
-    // });
 
 
 app.listen(3000);
