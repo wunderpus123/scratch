@@ -15,11 +15,19 @@ export const logInShowProjects = (credentials) => {
   }
 };
 
-
+//PRIORITY
 export const addTask = (title, owner) => ({
   type: types.ADD_TASK,
   payload: { title, owner }
 });
+
+//PRIORITY
+export const deleteTask = taskId => ({
+  type: types.DELETE_TASK,
+  payload: taskId
+});
+
+
 
 export const updateTitle = (taskId, newTitle) => ({
   type: types.UPDATE_TITLE,
@@ -36,10 +44,6 @@ export const updateStatus = (taskId, newStatus) => ({
   payload: { taskId, newStatus }
 });
 
-export const deleteTask = taskId => ({
-  type: types.DELETE_TASK,
-  payload: taskId
-});
 
 export const addProject = projectName => ({
   type: types.ADD_PROJECT,
