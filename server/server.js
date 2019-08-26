@@ -25,20 +25,15 @@ app.post('/login', userController.login, projectController.getAll, (req, res, ne
 });
 
 app.post('/signup', userController.signup, (req, res) => {
-    //signup successful!
-    res.json(res.locals.userData);
-});
-
-// app.post('/signup', userController.signup, (req, res) => {
-//   //signup successful!
-//   return;
-// });
-
-app.get('/api/projects/:id', projectController.getCards, (req ,res) => {
-  // once received data in the res.locals, send task data to the client
-  return res.status(200).json(res.locals.taskData);
+  //signup successful!
+  res.json(res.locals.userData);
 });
 
 app.use('/api', apiRouter);
+// app.post('/signup', userController.signup, (req, res) => {
+  //   //signup successful!
+  //   return;
+    // });
+
 
 app.listen(3000);
