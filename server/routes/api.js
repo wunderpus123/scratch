@@ -20,7 +20,7 @@ apiRouter.get('/projects/:id', projectController.getCard, (req, res, next) => {
 
 // add task
 apiRouter.post('/projects/task', projectController.addCard, (req, res, next) => {
-  res.status(200).send('card added!');
+  res.status(200).send(res.locals.taskData);
 });
 
 // update card

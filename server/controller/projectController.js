@@ -41,9 +41,8 @@ projectController.getCard = (req, res, next) => {
 //adds a single task/card
 projectController.addCard = (req, res, next) => {
   // grab task fields from req.body
-  const { title, status, id, owner } = req.body;
-  console.log('ID', id) 
-    db.query(`INSERT INTO task( title, status, id, owner ) VALUES($1, $2, $3, $4)`, [title, status, id, owner])
+  const { title, owner } = req.body.taskData;
+    db.query(`INSERT INTO task( title, owner, projectid ) VALUES($1, $2, $3) RETURNING *`, [title, owner, 1])
       .then(data => {
       if (!data) return res.send('error adding task to db', err)
       console.log('all tasks from db:', data.rows)
