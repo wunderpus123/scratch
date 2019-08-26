@@ -20,12 +20,12 @@ apiRouter.get('/projects/:id', projectController.getCard, (req, res, next) => {
 
 // add task
 apiRouter.post('/projects/task', projectController.addCard, (req, res, next) => {
-  res.status(200).send(res.locals.taskData);
+  res.status(200).json(res.locals.taskData);
 });
 
 // update card
 apiRouter.patch('/projects/task', projectController.updateCard, (req, res, next) => {
-  res.status(200).send('card updated!');
+  res.status(200).json('card updated!');
 });
 
 // delete card

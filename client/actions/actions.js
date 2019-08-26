@@ -13,7 +13,7 @@ export const logInShowProjects = (credentials) => {
     .then(data => data.json())
     .then(task => {
       //here we would dispatch the action as we normally would:
-      console.log(task)
+      console.log('HERE IS THE TASK', task)
       dispatch({ type: types.LOG_IN_SHOW_PROJECTS, payload: { task } });
     })
     .catch(err => console.log('error:', err))
@@ -22,6 +22,8 @@ export const logInShowProjects = (credentials) => {
 
 //PRIORITY
 export const addTask = (taskData) => {
+
+  return (dispatch) => {
   fetch('/api/projects/task', {
     method: 'POST', 
     headers: { 'Content-Type': 'application/json' },
@@ -29,9 +31,11 @@ export const addTask = (taskData) => {
   })
   .then(data => data.json())
   .then(task => {
-    dispatch({ type: types.ADD_TASK, payload: { task } });
+    console.log('RECEIVED TASK before dispatching', task)
+    dispatch({ type: types.ADD_TASK, payload: task });
   })
   .catch(err => console.log('error:', err))
+}
 }
 
 //PRIORITY
