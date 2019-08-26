@@ -34,11 +34,6 @@ app.use('/api', apiRouter);
   //   //signup successful!
   //   return;
     // });
-    
-// app.get('/api/projects/:id', projectController.getCards, (req ,res) => {
-//   // once received data in the res.locals, send task data to the client
-//   return res.status(200).json(res.locals.taskData);
-// });
 
 
 app.listen(3000);

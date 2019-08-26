@@ -29,8 +29,9 @@ apiRouter.patch('/projects/task', projectController.updateCard, (req, res, next)
 });
 
 // delete card
-// apiRouter.delete('/cards/:id', projectController.deleteCard);
-
+apiRouter.delete('/projects/:id', projectController.deleteCard, (req, res, next) => {
+  res.status(200).send('card deleted...!');
+});
 
 
 module.exports = apiRouter;

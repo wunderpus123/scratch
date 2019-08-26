@@ -20,13 +20,13 @@ projectController.getAll = (req, res, next) => {
       .catch(err => console.log('error:', err));
 }
 
-//! Get all cards for the project
+//! Get all cards in the project
 //serves all cards for scrumboard
 projectController.getCard = (req, res, next) => {
   //using param, query all tasks using id;
-    const projectId = req.params.id;
-    console.log('Project ID', projectId) 
-      db.query(`SELECT taskname, projectid, status FROM task WHERE projectid = $1`, [projectId])
+    const { id } = req.params;
+    console.log('Project ID', id) 
+      db.query(`SELECT taskname, projectid, status FROM task WHERE projectid = $1`, [id])
         .then(data => {
         if (!data) res.send('no tasks at this time! add one here: (should have a button to add task')
         console.log('all tasks from db:', data.rows)
@@ -37,7 +37,7 @@ projectController.getCard = (req, res, next) => {
         .catch(err => console.log('error finding tasks', err))
   }
 
-//! add card for the project
+//! add card in the project
 //adds a single task/card
 projectController.addCard = (req, res, next) => {
   // grab task fields from req.body
@@ -54,6 +54,7 @@ projectController.addCard = (req, res, next) => {
       .catch(err => console.log('error finding tasks', err))
   }
 
+//! update card in the project
 //updates card:
 projectController.updateCard = (req, res, next) => {
   // grab task fields from req.body
@@ -70,6 +71,23 @@ projectController.updateCard = (req, res, next) => {
       .catch(err => console.log('error updating task', err))
   }
 
+//! delete card from the project
+//delete card:
+projectController.deleteCard = (req, res, next) => {
+    
+    //using param, query tasks using id;
+    const { id } = req.params;
+    console.log('taskid', id ) 
+      db.query(`DELETE FROM task WHERE id = $1`, [id])
+        .then(data => {
+        if (!data) return res.send('error finding that task to delete')
+        console.log('all tasks from db:', data.rows)
+  //should send client all tasks (would need to map over in front end to display each task)
+        res.locals.taskData = data.rows;
+        return next() 
+        })
+        .catch(err => console.log('error finding tasks', err))
+  }
 
 //add a project:
 // projectController.addProject = (req, res) => {
