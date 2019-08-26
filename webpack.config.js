@@ -1,5 +1,5 @@
 const path = require('path');
-
+//this is a test
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: path.join(__dirname, 'client', 'index.js'), //! Confirm
@@ -8,7 +8,9 @@ module.exports = {
     contentBase: 'build',
     port: 8080,
     proxy: {
-      '/': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
+      '/login' : 'http://localhost:3000',
+      '/signup' : 'http://localhost:3000'
     },
     historyApiFallback: true,
   },

@@ -11,6 +11,7 @@ const clickInProgress = (event, props) => {
 };
 
 const clickDone = (event, props) => {
+  console.log(props);
   event.preventDefault();
   props.updateStatus(props.id, "done");
 };
