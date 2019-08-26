@@ -5,6 +5,7 @@ import {
 // import { connect } from 'react-redux';
 import Login from './Login';
 
+//working on the side bar; tomorrows goal should be to have login on click to project view;
 class Sidebar extends Component {
     constructor(props){
         super(props);
