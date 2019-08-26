@@ -41,9 +41,8 @@ projectController.getCard = (req, res, next) => {
 //adds a single task/card
 projectController.addCard = (req, res, next) => {
   // grab task fields from req.body
-  const { title, status, id, owner } = req.body;
-  console.log('ID', id) 
-    db.query(`INSERT INTO task( title, status, id, owner ) VALUES($1, $2, $3, $4)`, [title, status, id, owner])
+  const { title, owner } = req.body.taskData;
+    db.query(`INSERT INTO task( title, owner, projectid ) VALUES($1, $2, $3) RETURNING *`, [title, owner, 1])
       .then(data => {
       if (!data) return res.send('error adding task to db', err)
       console.log('all tasks from db:', data.rows)
@@ -76,14 +75,16 @@ projectController.updateCard = (req, res, next) => {
 projectController.deleteCard = (req, res, next) => {
     
     //using param, query tasks using id;
-    const { id } = req.params;
+    const { id } = req.body;
+    console.log('HITTING THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     console.log('taskid', id ) 
+
       db.query(`DELETE FROM task WHERE id = $1`, [id])
         .then(data => {
         if (!data) return res.send('error finding that task to delete')
         console.log('all tasks from db:', data.rows)
   //should send client all tasks (would need to map over in front end to display each task)
-        res.locals.taskData = data.rows;
+        // res.locals.taskData = data.rows;
         return next() 
         })
         .catch(err => console.log('error finding tasks', err))

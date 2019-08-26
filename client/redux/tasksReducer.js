@@ -18,20 +18,22 @@ const tasksReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case types.LOG_IN_SHOW_PROJECTS:
-      // console.log('taskList', taskList)
+
+      tasksList = action.payload.task
+      
       return {
         ...state,
         isLoggedIn: true,
-        tasksList: action.payload.task
+        tasksList: tasksList,
       };
 
     case types.ADD_TASK:
       let lastTaskId = action.payload.id;
 
       const newTask = {
-        id: action.payload.id,
-        title: action.payload.title,
-        owner: action.payload.owner,
+        id: action.payload[0].id,
+        title: action.payload[0].title,
+        owner: action.payload[0].owner,
         status: "todo"
       };
 
