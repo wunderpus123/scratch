@@ -12,6 +12,7 @@ const Column = props => {
           id={val.id}
           updateStatus={props.updateStatus}
           key={"card" + idx}
+          deleteTask={props.deleteTask}
         />
       );
     });

@@ -11,10 +11,14 @@ const clickInProgress = (event, props) => {
 };
 
 const clickDone = (event, props) => {
-  console.log(props);
   event.preventDefault();
   props.updateStatus(props.id, "done");
 };
+
+const deleteCard = (event, props) => {
+  event.preventDefault();
+  props.deleteTask(props.id)
+}
 
 const Card = props => (
   <div className="card">
@@ -39,6 +43,8 @@ const Card = props => (
         </a>
       </div>
     </div>
+    <button> Edit </button>
+    <button onClick = {event => deleteCard(event, props)}> Delete </button>
   </div>
 );
 

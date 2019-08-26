@@ -10,8 +10,12 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   updateStatus: (title, newStatus) => {
     dispatch(actions.updateStatus(title, newStatus));
+  },
+  deleteTask: (taskId) => {
+    dispatch(actions.deleteTask(taskId))
   }
 });
+
 
 class TasksContainer extends Component {
   constructor(props) {
@@ -35,16 +39,19 @@ class TasksContainer extends Component {
           header="To Do"
           tasks={todoTasks}
           updateStatus={this.props.updateStatus}
+          deleteTask = {this.props.deleteTask}
         />
         <Column
           header="In Progress"
           tasks={inProgressTasks}
           updateStatus={this.props.updateStatus}
+          deleteTask = {this.props.deleteTask}
         />
         <Column
           header="Done"
           tasks={doneTasks}
           updateStatus={this.props.updateStatus}
+          deleteTask = {this.props.deleteTask}
         />
       </div>
     );
