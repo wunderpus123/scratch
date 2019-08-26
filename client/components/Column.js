@@ -2,7 +2,6 @@ import React from "react";
 import Card from "./Card";
 
 const Column = props => {
-  console.log("props tasks ", props.tasks);
   let tasksToRender = [];
   if (props.tasks !== undefined) {
     tasksToRender = props.tasks.map(function(val, idx) {

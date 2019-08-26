@@ -8,9 +8,15 @@ const Card = props => (
     <div className="dropdown">
       <button className="dropbtn">Status</button>
       <div className="dropdown-content">
-        <a href="#">To Do</a>
-        <a href="#">In Progress</a>
-        <a href="#">Done</a>
+        <a href="#" value="todo">
+          To Do
+        </a>
+        <a href="#" value="inProgress">
+          In Progress
+        </a>
+        <a href="#" value="done">
+          Done
+        </a>
       </div>
     </div>
   </div>
