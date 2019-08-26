@@ -26,7 +26,7 @@ projectController.getCard = (req, res, next) => {
   //using param, query all tasks using id;
     // const { id } = req.params;
     // console.log('Project ID', id) 
-      db.query(`SELECT taskname, projectid, status FROM task WHERE projectid = 1`)
+      db.query(`SELECT id, title, owner, status FROM task WHERE projectid = 1`)
         .then(data => {
         if (!data) res.send('no tasks at this time! add one here: (should have a button to add task')
         console.log('all tasks from db:', data.rows)
@@ -41,9 +41,9 @@ projectController.getCard = (req, res, next) => {
 //adds a single task/card
 projectController.addCard = (req, res, next) => {
   // grab task fields from req.body
-  const { taskname, status, projectid } = req.body;
-  console.log('Project ID', projectid) 
-    db.query(`INSERT INTO task( taskname, status, projectid ) VALUES($1, $2, $3)`, [taskname, status, projectid])
+  const { title, status, id, owner } = req.body;
+  console.log('ID', id) 
+    db.query(`INSERT INTO task( title, status, id, owner ) VALUES($1, $2, $3, $4)`, [title, status, id, owner])
       .then(data => {
       if (!data) return res.send('error adding task to db', err)
       console.log('all tasks from db:', data.rows)
