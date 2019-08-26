@@ -1,5 +1,20 @@
 import * as types from "../constants/actionTypes";
 
+export const logIn = (credentials) => {
+  return (dispatch) => {
+    fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify( {credentials} ),
+    })
+    .then((data) => {
+      dispatch({ type: types.LOG_IN, payload: { credentials } });
+    })
+    .catch(err => console.log('error:', err))
+  }
+};
+
+
 export const addTask = (title, owner) => ({
   type: types.ADD_TASK,
   payload: { title, owner }
@@ -15,14 +30,10 @@ export const updateOwner = (taskId, newOwner) => ({
   payload: { taskId, newOwner }
 });
 
-export const updateStatus = (taskId, newStatus) => {
-  console.log("task ", taskId);
-  console.log("stat ", newStatus);
-  return {
-    type: types.UPDATE_STATUS,
-    payload: { taskId, newStatus }
-  };
-};
+export const updateStatus = (taskId, newStatus) => ({
+  type: types.UPDATE_STATUS,
+  payload: { taskId, newStatus }
+});
 
 export const deleteTask = taskId => ({
   type: types.DELETE_TASK,
