@@ -58,7 +58,7 @@ class Login extends Component {
             <input
               type="text"
               name="password"
-              placeholder="username"
+              placeholder="password"
               onChange={this.handleChange}
               class="w3-input w3-border w3-round"
             />
