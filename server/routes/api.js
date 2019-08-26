@@ -13,14 +13,23 @@ const apiRouter = express.Router();
 //get project with id and serve cards
 // apiRouter.get('/projects/:id', projectController.getCards);
 
-//add card:
-apiRouter.post('/projects/:id', projectController.addCard);
+// get cards
+apiRouter.get('/projects/:id', projectController.getCard, (req, res, next) => {
+  res.status(200).json(res.locals.taskData);
+});
 
-//update card
-apiRouter.patch('/cards/:id', projectController.updateCard);
+// add task
+apiRouter.post('/projects/task', projectController.addCard, (req, res, next) => {
+  res.status(200).send('card added!');
+});
 
-//delete card
-apiRouter.delete('/cards/:id', projectController.deleteCard);
+// update card
+apiRouter.patch('/projects/task', projectController.updateCard, (req, res, next) => {
+  res.status(200).send('card updated!');
+});
+
+// delete card
+// apiRouter.delete('/cards/:id', projectController.deleteCard);
 
 
 
