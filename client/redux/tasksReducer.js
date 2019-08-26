@@ -15,6 +15,12 @@ const tasksReducer = (state = initialState, action) => {
   let taskId;
 
   switch (action.type) {
+    case types.LOG_IN:
+      return {
+        ...state,
+        username: action.payload.username
+      };
+
     case types.ADD_TASK:
       let lastTaskId = state.lastTaskId + 1;
 
