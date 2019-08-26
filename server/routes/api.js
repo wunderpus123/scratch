@@ -29,8 +29,8 @@ apiRouter.patch('/projects/task', projectController.updateCard, (req, res, next)
 });
 
 // delete card
-apiRouter.delete('/projects/:id', projectController.deleteCard, (req, res, next) => {
-  res.status(200).send('card deleted...!');
+apiRouter.delete('/projects/task', projectController.deleteCard, projectController.getCard, (req, res, next) => {
+  res.status(200).json(res.locals.taskData);
 });
 
 
