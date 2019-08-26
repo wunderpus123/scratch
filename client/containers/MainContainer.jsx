@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import Header from "../components/Header";
-// import ProjectBar from "../components/ProjectBar";
-// import TasksContainer from "./TasksContainer";
+
 import * as actions from "../actions/actions";
 import Sidebar from "../components/SideBar";
 

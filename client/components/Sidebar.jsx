@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router, Route, Link, Redirect,
 } from 'react-router-dom';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Login from './Login';
+import Header from "./Header";
+import ProjectBar from "./ProjectBar";
+import TaskContainer from '../containers/TasksContainer'
 
+//mapStateToProps:
+
+const mapStateToProps = state => {
+  const { isLoggedIn } = state.tasks;
+  return { isLoggedIn }
+}
 //working on the side bar; tomorrows goal should be to have login on click to project view;
 class Sidebar extends Component {
     constructor(props){
@@ -17,23 +26,39 @@ class Sidebar extends Component {
             {
                 path: '/',
                 main: () => {
+                  if (!this.props.isLoggedIn) {
+                    return (
+                      <div>
+                        <h1>WELCOME TO THE WUNDERBOARD!!</h1>
+                        <Login/>
+                      </div>
+                    )
+                  }
                   return (
-                  <div>
-                    <h1>WELCOME TO THE WUNDERBOARD!!</h1>
-                    <Login/>
-                  </div>
+                    <div>
+                      <ProjectBar />
+                      <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
+                      <TaskContainer />
+                    </div>
                   )
                 }
-            },
-        //     {
-        //       path: '/login',
-        //       main: () => {
-        //         <div>
-        //           <h2>Login here:</h2>
-        //           <Login/>
-        //         </div>
-        //       }
-        //   },
+                // {
+                //   return ( 
+                //   <div>
+                //     <h1>WELCOME TO THE WUNDERBOARD!!</h1>
+                //     <Login/>
+                //   </div>
+                //   )
+                // }
+            // },
+            // {
+            //   path: '/home',
+            //   main: () => (this.props.isLoggedIn ? <Redirect to="/home" /> : (
+            //     <div>
+            //       <TaskContainer />
+            //     </div>
+            //   )),
+            // }
         //   {
         //     path: '/',
         //     main: () => {
@@ -42,7 +67,7 @@ class Sidebar extends Component {
         //         <Login/>
         //       </div>
         //     }
-        // }
+        }
         ];
         return (
           <Router>
@@ -62,4 +87,4 @@ class Sidebar extends Component {
 }
 
 
-export default Sidebar;
+export default connect (mapStateToProps)(Sidebar);

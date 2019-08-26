@@ -28,6 +28,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.logInShowProjects(this.state)
+    // this.props.history.push('/')
     // alert("A name was submitted: " + " .... ");
     //needs to be connected to the redux store
   }
