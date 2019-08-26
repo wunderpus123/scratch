@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import * as actions from "../actions/actions";
 
 
+const mapStateToProps = state => {
+  const { isLoggedIn, tasksList } = state.tasks;
+  return { isLoggedIn, tasksList }
+}
+
 const mapDispatchToProps = (dispatch) => ({
   logInShowProjects: (credentials) => dispatch(actions.logInShowProjects(credentials))
 });
