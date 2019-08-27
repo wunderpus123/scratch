@@ -2,7 +2,7 @@ const path = require('path');
 //this is a test
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: path.join(__dirname, 'client', 'index.js'), //! Confirm
+  entry: path.join(__dirname, 'client', 'index.js'),
   resolve: { extensions: ['.jsx', '.js']},
   devServer: {
     contentBase: 'build',

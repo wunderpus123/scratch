@@ -26,7 +26,7 @@ const Card = props => (
     <p id="owner">Owner: {props.owner}</p>
 
     <div className="dropdown">
-      <button className="dropbtn" class="w3-button w3-khaki w3-round">Status</button>
+      <button className="dropbtn" className="w3-button w3-khaki w3-round">Status</button>
       <div className="dropdown-content">
         <a href="#" value="todo" onClick={event => clickTodo(event, props)}>
           To Do
@@ -44,7 +44,7 @@ const Card = props => (
       </div>
     </div>
     {/* <button> Edit </button> */}
-    <button class="w3-button w3-red w3-round" onClick={event => deleteCard(event, props)}> Delete </button>
+    <button className="w3-button w3-red w3-round" onClick={event => deleteCard(event, props)}> Delete </button>
   </div>
 );
 
