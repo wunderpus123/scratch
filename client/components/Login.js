@@ -49,7 +49,7 @@ class Login extends Component {
               name="username"
               placeholder="username"
               onChange={this.handleChange}
-              class="w3-input w3-border w3-round"
+              className="w3-input w3-border w3-round"
             />
           </label>
 
@@ -60,11 +60,11 @@ class Login extends Component {
               name="password"
               placeholder="password"
               onChange={this.handleChange}
-              class="w3-input w3-border w3-round"
+              className="w3-input w3-border w3-round"
             />
           </label>
 
-          <input type="submit" value="Submit" class="w3-button w3-teal w3-round" />
+          <input type="submit" value="Submit" className="w3-button w3-teal w3-round" />
         </form>
       </div>
     );

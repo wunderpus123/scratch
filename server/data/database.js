@@ -1,6 +1,6 @@
 const pg = require('pg');
 
-// connection to elephant sql database (cloud - free)
+// connection to elephant sql database (cloud - free 20mb)
 const url = 'postgres://abylrafp:B1E8jppoWdCgo1K0c6rphz6yVbIZcxoW@raja.db.elephantsql.com:5432/abylrafp'
 
 const pool = new pg.Pool({
@@ -17,9 +17,9 @@ module.exports = {
   },
 }
 
-// dummy data in the db for now --- 
+// dummy data format in the cloud db --- 
 
-// user table
+// userinfo table
 // {
 //   id: 1,
 //   username: test ,
@@ -30,12 +30,14 @@ module.exports = {
 // {
 //   id: 1,
 //   name: scrum,
-//   userId: 1,
+//   userid: 1,
 // }
 
 // task table
 // {
 //   id: 1,
-//   taskName: create db ,
-//   projectId: 1
+//   title: "create db" ,
+//   status: "todo",
+//   owner: "paul",
+//   projectid: 1
 // }
