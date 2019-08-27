@@ -1,35 +1,25 @@
 const express = require('express');
 const projectController = require("../controller/projectController");
-const userController = require("../controller/userController");
 
 const apiRouter = express.Router();
 
-//serves projects:
-// apiRouter.get('/projects', projectController.getAll);
+// routes to get cards middleware
+// apiRouter.get('/projects', projectController.getCards, (req, res, next) => {
+//   res.status(200).json(res.locals.taskData);
+// });
 
-//add project:
-// apiRouter.post('/projects', projectController.addProject);
-
-//get project with id and serve cards
-// apiRouter.get('/projects/:id', projectController.getCards);
-
-// get cards
-apiRouter.get('/projects/:id', projectController.getCard, (req, res, next) => {
-  res.status(200).json(res.locals.taskData);
-});
-
-// add task
+// routes to add task middleware
 apiRouter.post('/projects/task', projectController.addCard, (req, res, next) => {
   res.status(200).json(res.locals.taskData);
 });
 
-// update card
-apiRouter.patch('/projects/task', projectController.updateCard, (req, res, next) => {
-  res.status(200).json('card updated!');
+// routes to update card middleware
+apiRouter.patch('/projects/task', projectController.updateCard, projectController.getCards, (req, res, next) => {
+  res.status(200).json(res.locals.taskData);
 });
 
-// delete card
-apiRouter.delete('/projects/task', projectController.deleteCard, projectController.getCard, (req, res, next) => {
+// routes to delete card middleware
+apiRouter.delete('/projects/task', projectController.deleteCard, projectController.getCards, (req, res, next) => {
   res.status(200).json(res.locals.taskData);
 });
 

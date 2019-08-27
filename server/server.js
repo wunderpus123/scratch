@@ -4,37 +4,31 @@ const projectController = require("./controller/projectController");
 const userController = require("./controller/userController");
 const apiRouter = require("./routes/api");
 
-
 const app = express();
-//body parser without npm bodyParser
+// body parser without bodyParser
 app.use(express.json());
 
-//serving static:
+// serving static files in the build folder
 app.use('/build', express.static(path.join(__dirname, '..', 'build')));
 
+// serve initial load html file
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-// when user attempts to login from main page
-  // userController.login verifies the user - saves user id to res.locals
-  // 
-app.post('/login', userController.login, projectController.getCard, (req, res, next) => {
+// on login request, verify user, get cards
+app.post('/login', userController.login, projectController.getCards, (req, res, next) => {
     // once received data in the res.locals, send project data to the client
-    console.log('SENDING THIS BACK TO CLIENT', res.locals.taskData)
+    console.log('SENDING THIS TO CLIENT ON LOAD', res.locals.taskData)
     res.status(200).json(res.locals.taskData);
 });
 
+// sign up page TBD
 app.post('/signup', userController.signup, (req, res) => {
-  //signup successful!
+  // once signup successful, send back the user data
   res.json(res.locals.userData);
 });
 
 app.use('/api', apiRouter);
-// app.post('/signup', userController.signup, (req, res) => {
-  //   //signup successful!
-  //   return;
-    // });
-
 
 app.listen(3000);
