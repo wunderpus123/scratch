@@ -1,5 +1,6 @@
 import React from "react";
 
+// Status change has different event handler depending on new status value, but ideally should be just one event handler that sets new status based on target value
 const clickTodo = (event, props) => {
   event.preventDefault();
   props.updateStatus(props.id, "todo");
@@ -26,7 +27,9 @@ const Card = props => (
     <p id="owner">Owner: {props.owner}</p>
 
     <div className="dropdown">
-      <button className="dropbtn">Status</button>
+      <button className="dropbtn" class="w3-button w3-khaki w3-round">
+        Status
+      </button>
       <div className="dropdown-content">
         <a href="#" value="todo" onClick={event => clickTodo(event, props)}>
           To Do
@@ -43,8 +46,13 @@ const Card = props => (
         </a>
       </div>
     </div>
-    {/* <button> Edit </button> */}
-    <button onClick={event => deleteCard(event, props)}> Delete </button>
+    <button
+      class="w3-button w3-red w3-round"
+      onClick={event => deleteCard(event, props)}
+    >
+      {" "}
+      Delete{" "}
+    </button>
   </div>
 );
 

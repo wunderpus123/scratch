@@ -1,5 +1,6 @@
 import React from "react";
 
+// Component was ultimately not used, but should a user have multiple projects, on login, a list of those projects would be rendered by this component
 const Projects = props => {
   let projectsToRender = [];
   if (props.projects) {

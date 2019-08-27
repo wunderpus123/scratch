@@ -10,8 +10,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   addTask: (title, owner) => {
-    dispatch(actions.addTask({title, owner}));
-    
+    dispatch(actions.addTask({ title, owner }));
   }
 });
 
@@ -23,10 +22,7 @@ class MainContainer extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <Sidebar addTask={this.props.addTask}/>
-        {/* <ProjectBar />
-        <Header addTask={this.props.addTask} projectTitle={"Project #1"} />
-        <TasksContainer /> */}
+        <Sidebar addTask={this.props.addTask} />
       </div>
     );
   }

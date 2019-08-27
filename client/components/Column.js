@@ -11,8 +11,8 @@ const Column = props => {
           owner={val.owner}
           id={val.id}
           updateStatus={props.updateStatus}
-          key={"card" + idx}
           deleteTask={props.deleteTask}
+          key={"card" + idx}
         />
       );
     });
