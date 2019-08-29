@@ -1,7 +1,7 @@
 const path = require('path');
 //this is a test
 module.exports = {
-  mode: process.env.NODE_ENV,
+  mode: "production",
   entry: path.join(__dirname, 'client', 'index.js'), //! Confirm
   resolve: { extensions: ['.jsx', '.js']},
   devServer: {

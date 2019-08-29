@@ -3,9 +3,10 @@ const express = require("express");
 const projectController = require("./controller/projectController");
 const userController = require("./controller/userController");
 const apiRouter = require("./routes/api");
-
+const lightningcomm = require("lightningcomm")
 
 const app = express();
+const lc = lightningcomm(app);
 //body parser without npm bodyParser
 app.use(express.json());
 

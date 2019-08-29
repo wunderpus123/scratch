@@ -93,6 +93,7 @@ const tasksReducer = (state = initialState, action) => {
       };
 
     case types.DELETE_TASK:
+      
         return {
           ...state,
           isLoggedIn: true,

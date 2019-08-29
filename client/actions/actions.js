@@ -57,7 +57,7 @@ export const deleteTask = taskId => {
 export const updateStatus = (taskId, newStatus) => {
   return (dispatch) => {
     fetch('/api/projects/task', {
-      method: 'UPDATE',
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify( {taskId, newStatus})
     })
